@@ -11,7 +11,6 @@ Requires:	xpdf
 Requires(post,preun):	grep
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 The Xpdf language support packages include CMap files, text encodings,
 and various other configuration information necessary or useful for
@@ -42,26 +41,26 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ ! -f /etc/xpdfrc ]; then
-	echo 'unicodeMap	Big5		/usr/X11R6/share/xpdf/Big5.unicodeMap' >> /etc/xpdfrc
-	echo 'unicodeMap	Big5ascii	/usr/X11R6/share/xpdf/Big5ascii.unicodeMap' >> /etc/xpdfrc
-	echo 'cidToUnicode	Adobe-CNS1	/usr/X11R6/share/xpdf/Adobe-CNS1.cidToUnicode' >> /etc/xpdfrc
-	echo 'cMapDir		Adobe-CNS1	/usr/X11R6/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
-	echo 'toUnicodeDir			/usr/X11R6/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
+	echo 'unicodeMap	Big5		/usr/share/xpdf/Big5.unicodeMap' >> /etc/xpdfrc
+	echo 'unicodeMap	Big5ascii	/usr/share/xpdf/Big5ascii.unicodeMap' >> /etc/xpdfrc
+	echo 'cidToUnicode	Adobe-CNS1	/usr/share/xpdf/Adobe-CNS1.cidToUnicode' >> /etc/xpdfrc
+	echo 'cMapDir		Adobe-CNS1	/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
+	echo 'toUnicodeDir			/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
 	echo 'displayCIDFontX	Adobe-CNS1	"-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-big5-0" Big5' >> /etc/xpdfrc
 	echo '# displayCIDFontX	Adobe-CNS1	"-arphic-ar pl kaitim big5-medium-r-normal--%s-*-*-*-c-*-iso10646-1" UCS-2' >> /etc/xpdfrc
 else
- if ! grep -q /usr/X11R6/share/xpdf/Big5.unicodeMap /etc/xpdfrc; then
-	echo 'unicodeMap	Big5		/usr/X11R6/share/xpdf/Big5.unicodeMap' >> /etc/xpdfrc
+ if ! grep -q Big5.unicodeMap /etc/xpdfrc; then
+	echo 'unicodeMap	Big5		/usr/share/xpdf/Big5.unicodeMap' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/Big5ascii.unicodeMap /etc/xpdfrc; then
-	echo 'unicodeMap	Big5ascii	/usr/X11R6/share/xpdf/Big5ascii.unicodeMap' >> /etc/xpdfrc
+ if ! grep -q Big5ascii.unicodeMap /etc/xpdfrc; then
+	echo 'unicodeMap	Big5ascii	/usr/share/xpdf/Big5ascii.unicodeMap' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/Adobe-CNS1.cidToUnicode /etc/xpdfrc; then
-	echo 'cidToUnicode	Adobe-CNS1	/usr/X11R6/share/xpdf/Adobe-CNS1.cidToUnicode' >> /etc/xpdfrc
+ if ! grep -q Adobe-CNS1.cidToUnicode /etc/xpdfrc; then
+	echo 'cidToUnicode	Adobe-CNS1	/usr/share/xpdf/Adobe-CNS1.cidToUnicode' >> /etc/xpdfrc
  fi
- if ! grep -q /usr/X11R6/share/xpdf/CMap-chinese-traditional /etc/xpdfrc; then
-	echo 'cMapDir		Adobe-CNS1	/usr/X11R6/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
-	echo 'toUnicodeDir			/usr/X11R6/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
+ if ! grep -q CMap-chinese-traditional /etc/xpdfrc; then
+	echo 'cMapDir		Adobe-CNS1	/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
+	echo 'toUnicodeDir			/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
  fi
  if ! grep -q "-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-big5-0" /etc/xpdfrc; then
 	echo 'displayCIDFontX	Adobe-CNS1	"-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-big5-0" Big5' >> /etc/xpdfrc
@@ -72,10 +71,10 @@ else
 fi
 
 %preun
-grep -v /usr/X11R6/share/xpdf/Big5.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
-grep -v /usr/X11R6/share/xpdf/Big5ascii.unicodeMap /etc/xpdfrc.new > /etc/xpdfrc
-grep -v /usr/X11R6/share/xpdf/Adobe-CNS1.cidToUnicode /etc/xpdfrc > /etc/xpdfrc.new
-grep -v /usr/X11R6/share/xpdf/CMap-chinese-traditional /etc/xpdfrc.new > /etc/xpdfrc
+grep -v Big5.unicodeMap /etc/xpdfrc > /etc/xpdfrc.new
+grep -v Big5ascii.unicodeMap /etc/xpdfrc.new > /etc/xpdfrc
+grep -v Adobe-CNS1.cidToUnicode /etc/xpdfrc > /etc/xpdfrc.new
+grep -v CMap-chinese-traditional /etc/xpdfrc.new > /etc/xpdfrc
 grep -v "-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-big5-0" /etc/xpdfrc > /etc/xpdfrc.new
 grep -v "-arphic-ar pl kaitim big5-medium-r-normal--%s-*-*-*-c-*-iso10646-1" /etc/xpdfrc.new > /etc/xpdfrc
 rm -f /etc/xpdfrc.new
