@@ -2,7 +2,7 @@ Summary:	Big5 and Big5ascii encoding support for xpdf
 Summary(pl):	Wsparcie kodowania Big5 i Big5ascii dla xpdf
 Name:		xpdf-chinese-traditional
 Version:	1.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}.tar.gz
@@ -66,10 +66,10 @@ else
 	echo 'cMapDir		Adobe-CNS1	/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
 	echo 'toUnicodeDir			/usr/share/xpdf/CMap-chinese-traditional' >> /etc/xpdfrc
  fi
- if ! grep -q '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-big5-0' /etc/xpdfrc; then
+ if ! grep -q -e '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-big5-0' /etc/xpdfrc; then
 	echo 'displayCIDFontX	Adobe-CNS1	"-*-fixed-medium-r-normal-*-%s-*-*-*-*-*-big5-0" Big5' >> /etc/xpdfrc
  fi
- if ! grep -q '-arphic-ar pl kaitim big5-medium-r-normal--%s-\*-\*-\*-c-\*-iso10646-1' /etc/xpdfrc; then
+ if ! grep -q -e '-arphic-ar pl kaitim big5-medium-r-normal--%s-\*-\*-\*-c-\*-iso10646-1' /etc/xpdfrc; then
 	echo '# displayCIDFontX	Adobe-CNS1	"-arphic-ar pl kaitim big5-medium-r-normal--%s-*-*-*-c-*-iso10646-1" UCS-2' >> /etc/xpdfrc
  fi
 fi
@@ -80,8 +80,8 @@ grep -v 'Big5\.unicodeMap' /etc/xpdfrc > /etc/xpdfrc.new
 grep -v 'Big5ascii\.unicodeMap' /etc/xpdfrc.new > /etc/xpdfrc
 grep -v 'Adobe-CNS1\.cidToUnicode' /etc/xpdfrc > /etc/xpdfrc.new
 grep -v 'CMap-chinese-traditional' /etc/xpdfrc.new > /etc/xpdfrc
-grep -v '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-big5-0' /etc/xpdfrc > /etc/xpdfrc.new
-grep -v '-arphic-ar pl kaitim big5-medium-r-normal--%s-\*-\*-\*-c-\*-iso10646-1' /etc/xpdfrc.new > /etc/xpdfrc
+grep -v -e '-\*-fixed-medium-r-normal-\*-%s-\*-\*-\*-\*-\*-big5-0' /etc/xpdfrc > /etc/xpdfrc.new
+grep -v -e '-arphic-ar pl kaitim big5-medium-r-normal--%s-\*-\*-\*-c-\*-iso10646-1' /etc/xpdfrc.new > /etc/xpdfrc
 rm -f /etc/xpdfrc.new
 
 %files
