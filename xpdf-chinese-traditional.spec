@@ -2,11 +2,11 @@ Summary:	Big5 and Big5ascii encoding support for xpdf
 Summary(pl):	Wsparcie kodowania Big5 i Big5ascii dla xpdf
 Name:		xpdf-chinese-traditional
 Version:	1.0
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}.tar.gz
-# Source0-md5:	1dd68bc924273e30534031d66f8a37c7
+Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2004-jul-27.tar.gz
+# Source0-md5:	b7fa7f1850f7cfa28498701507079abb
 URL:		http://www.foolabs.com/xpdf/
 Requires(post,preun):	grep
 Requires(post,preun):	xpdf
