@@ -1,5 +1,5 @@
 Summary:	Big5 and Big5ascii encoding support for xpdf
-Summary(pl.UTF-8):   Wsparcie kodowania Big5 i Big5ascii dla xpdf
+Summary(pl.UTF-8):	Wsparcie kodowania Big5 i Big5ascii dla xpdf
 Name:		xpdf-chinese-traditional
 Version:	1.0
 Release:	5
