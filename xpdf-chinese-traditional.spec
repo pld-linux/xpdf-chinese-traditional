@@ -1,5 +1,5 @@
 Summary:	Big5 and Big5ascii encoding support for xpdf
-Summary(pl):	Wsparcie kodowania Big5 i Big5ascii dla xpdf
+Summary(pl.UTF-8):   Wsparcie kodowania Big5 i Big5ascii dla xpdf
 Name:		xpdf-chinese-traditional
 Version:	1.0
 Release:	5
@@ -22,12 +22,12 @@ specific character sets. (They do not include any fonts.)
 This package provides support files needed to use the Xpdf tools with
 Chinese-traditional PDF files.
 
-%description -l pl
-Pakiety wspieraj±ce jêzyki Xpdf zawieraj± pliki CMap, kodowania oraz
-ró¿ne inne informacje konfiguracyjne niezbêdne b±d¼ przydatne przy
-okre¶lonych zestawach znaków. (Nie zawieraj± ¿adnych fontów).
-Ten pakiet zawiera pliki potrzebne do u¿ywania narzêdzi Xpdf z
-chiñskimi tradycyjnymi plikami PDF.
+%description -l pl.UTF-8
+Pakiety wspierajÄ…ce jÄ™zyki Xpdf zawierajÄ… pliki CMap, kodowania oraz
+rÃ³Å¼ne inne informacje konfiguracyjne niezbÄ™dne bÄ…dÅº przydatne przy
+okreÅ›lonych zestawach znakÃ³w. (Nie zawierajÄ… Å¼adnych fontÃ³w).
+Ten pakiet zawiera pliki potrzebne do uÅ¼ywania narzÄ™dzi Xpdf z
+chiÅ„skimi tradycyjnymi plikami PDF.
 
 %prep
 %setup -q -n %{name}
