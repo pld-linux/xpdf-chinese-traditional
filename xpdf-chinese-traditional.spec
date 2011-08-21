@@ -1,12 +1,12 @@
 Summary:	Big5 and Big5ascii encoding support for xpdf
-Summary(pl.UTF-8):	Wsparcie kodowania Big5 i Big5ascii dla xpdf
+Summary(pl.UTF-8):	Obsługa kodowań Big5 i Big5ascii dla xpdf
 Name:		xpdf-chinese-traditional
-Version:	1.0
-Release:	6
-License:	GPL
+Version:	20110815
+Release:	1
+License:	GPL v2 or GPL v3
 Group:		X11/Applications
-Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2004-jul-27.tar.gz
-# Source0-md5:	b7fa7f1850f7cfa28498701507079abb
+Source0:	ftp://ftp.foolabs.com/pub/xpdf/%{name}-2011-aug-15.tar.gz
+# Source0-md5:	3bb86cbedc64563b9eaf21c04d7e016b
 URL:		http://www.foolabs.com/xpdf/
 Requires(post,preun):	grep
 Requires(post,preun):	xpdf
@@ -25,7 +25,7 @@ Chinese-traditional PDF files.
 %description -l pl.UTF-8
 Pakiety wspierające języki Xpdf zawierają pliki CMap, kodowania oraz
 różne inne informacje konfiguracyjne niezbędne bądź przydatne przy
-określonych zestawach znaków. (Nie zawierają żadnych fontów).
+określonych zestawach znaków (nie zawierają żadnych fontów).
 Ten pakiet zawiera pliki potrzebne do używania narzędzi Xpdf z
 chińskimi tradycyjnymi plikami PDF.
 
@@ -90,4 +90,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc README add-to-xpdfrc
-%{_datadir}/xpdf/*
+%{_datadir}/xpdf/Big5.unicodeMap
+%{_datadir}/xpdf/Big5ascii.unicodeMap
+%{_datadir}/xpdf/Adobe-CNS1.cidToUnicode
+%{_datadir}/xpdf/CMap-chinese-traditional
